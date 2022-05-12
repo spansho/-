@@ -23,6 +23,36 @@ namespace практика
         public MainWindow()
         {
             InitializeComponent();
+            Пароль.IsEnabled = false;
+
+
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Номер.Text = string.Empty;
+            Пароль.Text = string.Empty;
+            Код.Text = string.Empty;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (Номер.Text==string.Empty||Пароль.Text==string.Empty)
+            {
+                MessageBox.Show("Введите данные");
+                return;
+            }
+            using(praktikaEntities context=new praktikaEntities())
+            {
+               var parol=  context.Работники.FirstOrDefault(ak => ak.Номер == Номер.Text);
+                if(parol!=null)
+            }
         }
     }
 }

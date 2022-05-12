@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище praktikaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Абоненты">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Номер" Type="varchar" MaxLength="11" />
+          <Property Name="Имя" Type="varchar" MaxLength="50" />
+          <Property Name="Фамилия" Type="varchar" MaxLength="50" />
+          <Property Name="Отчество" Type="varchar" MaxLength="50" />
+          <Property Name="Пол" Type="varchar" MaxLength="1" />
+          <Property Name="Телефон" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Оборудование">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Наименование_борудования" Type="nvarchar" MaxLength="50" />
+          <Property Name="Тип" Type="nvarchar" MaxLength="50" />
+          <Property Name="Серийный_номер" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAC_Адрес" Type="nvarchar" MaxLength="50" />
+          <Property Name="IP_Адрес" Type="nvarchar" MaxLength="50" />
+          <Property Name="Список_телефонов" Type="nvarchar" MaxLength="50" />
+          <Property Name="Дата_устоновки" Type="date" />
+        </EntityType>
+        <EntityType Name="Подключения">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Пользователь" Type="int" Nullable="false" />
+          <Property Name="Тарифный_план" Type="nvarchar" MaxLength="50" />
+          <Property Name="Оборудование" Type="nvarchar" MaxLength="50" />
+          <Property Name="Адрес_установки" Type="nvarchar" MaxLength="50" />
+          <Property Name="Место_устоновки" Type="nvarchar" MaxLength="50" />
+          <Property Name="Телефон" Type="nvarchar" MaxLength="50" />
+          <Property Name="Точка_подключения" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Работники">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Номер" Type="varchar" MaxLength="11" />
+          <Property Name="Имя" Type="varchar" MaxLength="50" />
+          <Property Name="Фамилия" Type="varchar" MaxLength="50" />
+          <Property Name="Отчество" Type="varchar" MaxLength="50" />
+          <Property Name="Роль" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Тарифы">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Название_Тарифа" Type="varchar" MaxLength="50" />
+          <Property Name="Скорость_сети" Type="varchar" MaxLength="50" />
+          <Property Name="Подключенное_оборудование" Type="nvarchar" MaxLength="50" />
+          <Property Name="Цена" Type="int" />
+        </EntityType>
+        <EntityContainer Name="Хранилище praktikaModelContainer">
+          <EntitySet Name="Абоненты" EntityType="Self.Абоненты" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Оборудование" EntityType="Self.Оборудование" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Подключения" EntityType="Self.Подключения" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Работники" EntityType="Self.Работники" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Тарифы" EntityType="Self.Тарифы" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="praktikaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Абоненты">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Номер" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Пол" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Оборудование">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Наименование_борудования" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Тип" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Серийный_номер" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAC_Адрес" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IP_Адрес" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Список_телефонов" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Дата_устоновки" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Подключения">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Пользователь" Type="Int32" Nullable="false" />
+          <Property Name="Тарифный_план" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Оборудование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Адрес_установки" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Место_устоновки" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Точка_подключения" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Работники">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Номер" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Роль" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Тарифы">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Название_Тарифа" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Скорость_сети" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Подключенное_оборудование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Цена" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="praktikaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Абоненты" EntityType="Self.Абоненты" />
+          <EntitySet Name="Оборудование" EntityType="Self.Оборудование" />
+          <EntitySet Name="Подключения" EntityType="Self.Подключения" />
+          <EntitySet Name="Работники" EntityType="Self.Работники" />
+          <EntitySet Name="Тарифы" EntityType="Self.Тарифы" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище praktikaModelContainer" CdmEntityContainer="praktikaEntities">
+          <EntitySetMapping Name="Абоненты">
+            <EntityTypeMapping TypeName="praktikaModel.Абоненты">
+              <MappingFragment StoreEntitySet="Абоненты">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Номер" ColumnName="Номер" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Пол" ColumnName="Пол" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Оборудование">
+            <EntityTypeMapping TypeName="praktikaModel.Оборудование">
+              <MappingFragment StoreEntitySet="Оборудование">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Наименование_борудования" ColumnName="Наименование_борудования" />
+                <ScalarProperty Name="Тип" ColumnName="Тип" />
+                <ScalarProperty Name="Серийный_номер" ColumnName="Серийный_номер" />
+                <ScalarProperty Name="MAC_Адрес" ColumnName="MAC_Адрес" />
+                <ScalarProperty Name="IP_Адрес" ColumnName="IP_Адрес" />
+                <ScalarProperty Name="Список_телефонов" ColumnName="Список_телефонов" />
+                <ScalarProperty Name="Дата_устоновки" ColumnName="Дата_устоновки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Подключения">
+            <EntityTypeMapping TypeName="praktikaModel.Подключения">
+              <MappingFragment StoreEntitySet="Подключения">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Пользователь" ColumnName="Пользователь" />
+                <ScalarProperty Name="Тарифный_план" ColumnName="Тарифный_план" />
+                <ScalarProperty Name="Оборудование" ColumnName="Оборудование" />
+                <ScalarProperty Name="Адрес_установки" ColumnName="Адрес_установки" />
+                <ScalarProperty Name="Место_устоновки" ColumnName="Место_устоновки" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Точка_подключения" ColumnName="Точка_подключения" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Работники">
+            <EntityTypeMapping TypeName="praktikaModel.Работники">
+              <MappingFragment StoreEntitySet="Работники">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Номер" ColumnName="Номер" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Роль" ColumnName="Роль" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Тарифы">
+            <EntityTypeMapping TypeName="praktikaModel.Тарифы">
+              <MappingFragment StoreEntitySet="Тарифы">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Название_Тарифа" ColumnName="Название_Тарифа" />
+                <ScalarProperty Name="Скорость_сети" ColumnName="Скорость_сети" />
+                <ScalarProperty Name="Подключенное_оборудование" ColumnName="Подключенное_оборудование" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
